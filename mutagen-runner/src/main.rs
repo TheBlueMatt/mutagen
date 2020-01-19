@@ -109,6 +109,8 @@ fn run_mutations(
             progress.skip_mutation_uncovered(&m)?;
             MutantStatus::NotCovered
         };
+        if let MutantStatus::Killed(_) = mutant_status {}
+        else { panic!("Non-Failing Mutation test!"); }
         mutagen_report.add_mutation_result(m, mutant_status);
     }
 
